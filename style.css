@@ -1,312 +1,512 @@
-/* style.css - Enhanced Professional Version */
-
-/* 1. Global Reset & Typography */
+/* style.css - Clean, Aurora & Balanced */
 :root {
-    --primary-color: #0077B6; /* Professional Blue */
-    --secondary-color: #00B4D8; /* Lighter Blue/Cyan accent */
-    --accent-color: #90E0EF; /* Lightest Blue accent */
-    --dark-text: #1E293B; /* Darker, professional text */
-    --light-bg: #F8FAFC; /* Near-white background */
-    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08); /* Subtle shadow */
-    --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15); /* Lifted shadow on hover */
-    --border-radius: 8px;
-    --transition-duration: 0.3s;
-    --primary: #7f5af0;
-    --secondary: #2cb67d;
-    --dark: #16161a;
-    --light: #fffffe;
-    --gray: #94a1b2;
-
+    --aurora-1: #4361ee;
+    --aurora-2: #7209b7;
+    --aurora-3: #f72585;
+    --grad: linear-gradient(135deg, var(--aurora-1), var(--aurora-2), var(--aurora-3));
+    --bg-main: #fcfdff;
+    --text-head: #0f172a;
+    --text-body: #475569;
+    --glass-white: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(226, 232, 240, 0.8);
+    --card-shadow: 0 10px 30px -5px rgba(67, 97, 238, 0.1);
 }
 
-* {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 
 body {
-    margin: 0;
-    /* Use a more professional, clean sans-serif font stack */
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: var(--light-bg);
-    color: var(--dark-text);
-    line-height: 1.7; /* Slightly more spacious line height */
-    -webkit-font-smoothing: antialiased; /* For better text rendering */
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+    /* خلفية هادئة لا تشتت العين */
+    background-image: 
+        radial-gradient(circle at 0% 0%, rgba(67, 97, 238, 0.05) 0%, transparent 30%),
+        radial-gradient(circle at 100% 100%, rgba(247, 37, 133, 0.05) 0%, transparent 30%);
 }
 
-section {
-    padding: 80px 20px; /* Increased vertical padding */
-    max-width: 1200px;
-    margin: auto;
-    animation: fadeIn 1s ease forwards;
-    opacity: 0;
-}
-
-@keyframes fadeIn {
-    to { opacity: 1; }
-}
-
-h1, h2, h3 {
-    line-height: 1.2;
-    font-weight: 700; /* Bolder headings */
-}
-
-/* 2. Navigation Bar (New Addition for professionalism) */
+/* --- 1. Navigation - fixed the overlap --- */
 .nav-bar {
-    position: sticky;
+    position: sticky; /* أفضل من fixed لتجنب التداخل مع المحتوى */
     top: 0;
     z-index: 1000;
-    background-color: white;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    padding: 15px 40px;
+    background: var(--glass-white);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 1rem 5%;
     display: flex;
-    justify-content: center;
-    background: var(--accent-color);
-
+    justify-content: center; /* تمركز الروابط */
 }
 
 .nav-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
     gap: 30px;
+    list-style: none;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: var(--dark-text);
-    font-weight: 600;
-    font-size: 16px;
-    padding: 5px 0;
-    transition: color var(--transition-duration);
-    border-bottom: 2px solid transparent; /* For hover effect */
+    color: var(--text-head);
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: 0.3s;
 }
 
-.nav-links a:hover {
-    color: var(--primary-color);
-    border-bottom: 2px solid var(--primary-color);
-}
-/* 3. Hero Section */
+.nav-links a:hover { color: var(--aurora-1); }
+
+/* --- 2. Hero Section - Adjusted margins --- */
 .hero {
+    min-height: 70vh; /* تقليل الارتفاع ليكون أكثر منطقية */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 160px 20px; /* More vertical space */
-    /* Updated gradient for a calmer, more professional feel */
-    background: linear-gradient(135deg, #023E8A, var(--primary-color)); 
-    color: white;
+    padding: 80px 20px;
+    margin-bottom: 40px;
 }
 
 .hero h1 {
-    font-size: clamp(3rem, 7vw, 5rem); /* Responsive font size */
-    margin-bottom: 15px;
-}
-
-.hero h2 {
-    font-size: clamp(1.2rem, 3vw, 1.8rem);
-    margin-bottom: 30px;
-    opacity: 0.9;
+    font-size: clamp(2.5rem, 8vw, 4.5rem); /* تصغير الحجم قليلاً */
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.2;
+    margin-bottom: 25px;
 }
 
 .btn {
     display: inline-block;
-    background: white;
-    color: var(--primary-color);
-    padding: 14px 30px; /* Slightly larger button */
-    border-radius: 50px; /* Pill shape for modern look */
-    font-weight: 600;
+    padding: 16px 35px;
+    background: var(--grad);
+    color: white;
     text-decoration: none;
-    border: 2px solid white;
-    transition: all var(--transition-duration) ease;
+    border-radius: 12px; /* زوايا أكثر عصرية ومنطقية */
+    font-weight: 700;
+    box-shadow: 0 10px 20px rgba(67, 97, 238, 0.2);
+    transition: 0.3s ease;
 }
 
 .btn:hover {
-    background: var(--primary-color);
-    color: white;
-    border: 2px solid var(--accent-color);
-    transform: translateY(-2px); /* Slight lift */
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(67, 97, 238, 0.3);
 }
 
-/* 4. Section Headings */
-h2 {
-    font-size: clamp(2rem, 4vw, 2.5rem);
-    margin-bottom: 50px;
-    text-align: center;
-    position: relative;
-    padding-bottom: 10px;
-}
-
-h2::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 4px;
-    background: var(--primary-color);
-    margin: 10px auto 0;
-    border-radius: 2px;
-}
-
-/* 5. About Section */
-.about p {
-    font-size: 1.15rem;
-    text-align: center;
-    max-width: 800px;
-    margin: auto;
-    color: #4B5563;
-}
-
-/* 6. Skills Section */
+/* --- 3. Skills Grid --- */
+ /* --- Skills: Magnetic Liquid Glow Concept --- */
 .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
-    margin-top: 40px;
+    max-width: 950px;
+    margin: 50px auto;
+    padding: 20px;
 }
 
 .skills-grid span {
+    position: relative;
     background: white;
-    padding: 15px;
-    border-radius: var(--border-radius);
-    text-align: center;
-    border: 1px solid var(--accent-color); /* Lighter border */
-    color: var(--dark-text);
-    font-weight: 500;
-    box-shadow: var(--shadow-light);
-    transition: all var(--transition-duration);
+    padding: 14px 30px;
+    border-radius: 12px;
+    font-weight: 700;
+    color: var(--text-head);
+    border: 1px solid var(--glass-border);
+    cursor: pointer;
+    overflow: hidden; /* ضروري باش الـ Glow م يخرجش على الزوايا */
+    z-index: 1;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* هاد الجزء هو اللي كيدير تأثير الإضاءة السائلة الداخل */
+.skills-grid span::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: var(--grad); /* الـ Aurora gradient اللي استعملنا */
+    transition: width 0.6s ease, height 0.6s ease;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0;
 }
 
 .skills-grid span:hover {
-    background: var(--accent-color);
-    color: var(--dark-text);
-    transform: translateY(-3px) scale(1.02);
+    color: white;
+    /* حركة "المغناطيس": كيتجبد للعرض شوية وكيتزاد الحجم */
+    letter-spacing: 1px;
+    transform: scaleX(1.1) translateY(-5px);
+    border-color: transparent;
+    box-shadow: 0 10px 25px rgba(67, 97, 238, 0.3);
 }
 
-/* 7. Projects Section */
+/* ملي كتحط الماوس، اللون كينتشر بحال النقطة ديال الحبر */
+.skills-grid span:hover::before {
+    width: 300px;
+    height: 300px;
+    opacity: 1;
+}
+
+/* تأثير إضافي: "النبض" (Pulse) خفيف */
+@keyframes skillPulse {
+    0% { box-shadow: 0 0 0 0 rgba(67, 97, 238, 0.4); }
+    100% { box-shadow: 0 0 0 15px rgba(67, 97, 238, 0); }
+}
+
+.skills-grid span:active {
+    animation: skillPulse 0.5s forwards;
+    transform: scale(0.95);
+}
+
+/* --- 4. Project Cards - Fixed spacing --- */
 .project-list {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Use auto-fit for better responsiveness */
-    gap: 35px;
-    margin-top: 30px;
+    gap: 30px; /* مساحة واضحة بين البطاقات */
 }
 
 .project-card {
     background: white;
-    padding: 25px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-light); /* Lighter, more modern shadow */
-    transition: transform var(--transition-duration), box-shadow var(--transition-duration);
-    display: flex; /* Flexbox for better content control */
-    flex-direction: column;
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 35px;
+    box-shadow: var(--card-shadow);
+    transition: 0.3s ease;
 }
 
 .project-card:hover {
-    transform: translateY(-8px); /* Deeper lift on hover */
-    box-shadow: var(--shadow-hover);
+    transform: translateY(-5px);
+    border-color: var(--aurora-1);
 }
 
-.project-card h3 {
-    margin-top: 0;
-    color: var(--primary-color);
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+.tag {
+    display: inline-block;
+    background: rgba(67, 97, 238, 0.1);
+    color: var(--aurora-1);
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 15px;
 }
 
-.project-card p {
-    margin-bottom: 20px;
-    color: #6B7280;
-    flex-grow: 1; /* Pushes the image and links to the bottom */
+/* --- 5. Image Gallery - scroll fix --- */
+.image-gallery {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 20px 0;
+    margin: 20px 0;
 }
 
-.project-card img {
-    width: 100%;
-    height: auto; /* Ensure aspect ratio is maintained */
-    margin-bottom: 20px;
+.image-gallery img {
+    height: 180px; /* ارتفاع مريح ومنطقي */
+    border-radius: 16px;
     object-fit: cover;
-    border: 1px solid #E5E7EB;
-    max-width: 320px;
-    border-radius: 14px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    flex-shrink: 0; /* يمنع الصور من الانضغاط */
+    border: 2px solid #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
-.project-links a {
-    text-decoration: none;
-    color: var(--secondary-color);
-    font-weight: 600;
-    transition: color var(--transition-duration);
-    padding-right: 15px; /* Spacing between potential multiple links */
-}
-
-.project-links a:hover {
-    color: var(--primary-color);
-}
-
-/* 8. Contact Section */
+/* --- 6. Contact Section --- */
 .contact {
-    background-color: #E0F2FE; /* Light blue background for emphasis */
+    max-width: 900px;
+    margin: 80px auto;
+    background: var(--grad);
     padding: 60px 20px;
+    border-radius: 30px;
+    color: white;
     text-align: center;
 }
 
-.contact p {
-    font-size: 1.1rem;
-    margin: 10px 0;
-    color: #374151;
-}
+.contact h2 { color: white; margin-bottom: 20px; font-size: 2.2rem; }
 
 .contact a {
-    color: var(--primary-color);
-    font-weight: 600;
+    display: inline-block;
+    color: var(--aurora-1);
+    background: white;
+    padding: 12px 30px;
+    border-radius: 10px;
     text-decoration: none;
-    transition: color var(--transition-duration);
+    font-weight: 800;
+    margin-top: 10px;
 }
 
-.contact a:hover {
-    color: #023E8A;
-    text-decoration: underline;
+footer {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
 }
+/* --- About Me: Prominent & Creative Style --- */
+.about {
+    position: relative;
+    max-width: 1000px;
+    margin: 100px auto;
+    padding: 60px 40px;
+    background: var(--glass-white);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 40px;
+    overflow: hidden; /* باش الـ Glow م يخرجش */
+    box-shadow: var(--card-shadow);
+}
+
+/* إضافة إضاءة خلفية (Aurora Glow) وراء النص */
+.about::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(247, 37, 133, 0.1) 0%, transparent 70%);
+    z-index: -1;
+}
+
+.about-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* تقسيم مساحة النص والصورة/العناصر الإضافية */
+    gap: 40px;
+    align-items: center;
+}
+
+.about-content h2 {
+    text-align: left; /* مابقاش كولشي الوسط باش يبان ستيل احترافي */
+    margin-bottom: 25px;
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    color: var(--text-body);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* ستيل خاص للكلمات المهمة داخل الـ About */
+.about-content p strong {
+    color: var(--aurora-1);
+    background: rgba(67, 97, 238, 0.05);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-weight: 800;
+}
+
+/* مربع إحصائيات أو معلومات سريعة بجانب النص */
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.stat-box {
+    background: white;
+    padding: 25px;
+    border-radius: 24px;
+    border: 1px solid rgba(0,0,0,0.03);
+    text-align: center;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.stat-box:hover {
+    transform: translateY(-10px);
+    border-color: var(--aurora-2);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+}
+
+.stat-box h3 {
+    font-size: 2rem;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 5px;
+}
+
+.stat-box p {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-dim);
+}
+
+/* Responsive: تحويل الشبكة لعمود واحد فالهاتف */
 @media (max-width: 768px) {
-    .project-list {
+    .about-container {
         grid-template-columns: 1fr;
     }
-
-    .skills-grid {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    }
-
-    .hero {
-        padding: 120px 20px;
-    }
-}
-/* Footer Styles */
-footer {
-    background-color: #023E8A; /* Deep professional blue */
-    color: #ffffff;
-    text-align: center;
-    padding: 40px 20px;
-    font-size: 1rem;
-    letter-spacing: 0.5px;
-    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+    .about-content h2 { font-size: 2.2rem; }
+} 
+/* --- About Visual Section --- */
+.about-visual {
     position: relative;
-    margin-top: 60px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-footer p {
-    margin: 0;
-    transition: color 0.3s ease;
+.floating-card {
+    position: absolute;
+    background: white;
+    padding: 15px 25px;
+    border-radius: 15px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid var(--glass-border);
+    animation: float 4s ease-in-out infinite;
 }
 
-footer p:hover {
-    color: #90E0EF; /* Light accent color on hover */
+/* توزيع الكروت فالبلاصة الخاوية */
+.floating-card.html { top: 10%; left: 10%; animation-delay: 0s; color: #E34F26; }
+.floating-card.css { top: 40%; right: 15%; animation-delay: 1s; color: #1572B6; }
+.floating-card.js { bottom: 20%; left: 20%; animation-delay: 2s; color: #F7DF1E; }
+.floating-card.design { top: 70%; right: 5%; animation-delay: 1.5s; color: var(--aurora-3); }
+
+/* تأثير الإضاءة لي كيعمر الفراغ */
+.visual-glow {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: var(--grad);
+    filter: blur(80px);
+    opacity: 0.15;
+    z-index: -1;
 }
 
-footer a {
-    color: #ffffff;
-    text-decoration: underline;
-    transition: color 0.3s ease;
+/* حركة الطفو (Floating) */
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(2deg); }
 }
 
-footer a:hover {
-    color: #90E0EF;
+/* ضروري نأكدوا على الـ Grid باش يتقسم الموقع لـ 2 جهات */
+.about-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* 1fr هي الجهة اللي كانت خاوية */
+    gap: 40px;
+    align-items: center;
+}
+
+@media (max-width: 900px) {
+    .about-container { grid-template-columns: 1fr; }
+    .about-visual { height: 200px; } /* تصغير المساحة فالموبايل */
+}
+/* --- About Section Fixes --- */
+.about {
+    padding: 80px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-container {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr; /* تقسيم متوازن */
+    gap: 60px;
+    align-items: flex-start;
+    background: var(--glass-white);
+    padding: 50px;
+    border-radius: 40px;
+    border: 1px solid var(--glass-border);
+}
+
+.about-content h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.main-text {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.about-section-detail {
+    margin-bottom: 40px;
+}
+
+.about-section-detail h4 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: var(--aurora-1);
+}
+
+/* حل مشكلة التداخل في الـ Philosophy */
+.about-philosophy-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* عمود واحد لتجنب الضيق */
+    gap: 20px;
+    border-top: 1px solid var(--glass-border);
+    padding-top: 30px;
+}
+
+.philo-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.philo-icon { font-size: 1.5rem; }
+
+.philo-text strong {
+    display: block;
+    font-size: 1rem;
+    color: var(--text-head);
+}
+
+.philo-text p {
+    font-size: 0.9rem;
+    color: var(--text-body);
+}
+
+/* --- Floating Cards Placement --- */
+.about-visual {
+    position: relative;
+    height: 450px;
+}
+
+.floating-card {
+    position: absolute;
+    background: white;
+    padding: 15px 25px;
+    border-radius: 15px;
+    font-weight: 800;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid var(--glass-border);
+    animation: float 4s ease-in-out infinite;
+}
+
+.floating-card.html { top: 5%; left: 10%; color: #E34F26; }
+.floating-card.css { top: 35%; right: 10%; color: #1572B6; animation-delay: 1s; }
+.floating-card.js { bottom: 25%; left: 15%; color: #F7DF1E; animation-delay: 2s; }
+.floating-card.ui { bottom: 5%; right: 15%; color: var(--aurora-3); animation-delay: 1.5s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .about-container {
+        grid-template-columns: 1fr;
+        padding: 30px;
+    }
+    .about-visual { height: 300px; }
 }

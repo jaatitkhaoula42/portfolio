@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Khaoula Portfolio</title>
+    <title>Khaoula Portfolio | Mobile Developer</title>
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
@@ -18,21 +18,67 @@
     </nav>
     
     <section class="hero">
-        <h1>Hello , I am Khaoula</h1>
-        <h2>Mobile App Developer (Android | Flutter)</h2>
-        <a href="#projects" class="btn">View My Work</a>
+        <div class="hero-content">
+            <h1>Hello, I am Khaoula</h1>
+            <h2>Mobile App Developer <span class="highlight">(Android | Flutter)</span></h2>
+            <a href="#projects" class="btn">View My Work</a>
+        </div>
     </section>
+   <section class="about" id="about">
+    <div class="about-container">
+        <div class="about-content">
+            <div class="tag">The Creative Journey</div>
+            <h2>About Me <span class="highlight">Highlight</span></h2>
+            
+            <p class="main-text">
+                I am a <strong>self-taught Mobile App developer</strong>on a mission to build applications that are both powerful and elegant. I focus on turning ideas into intuitive mobile experiences through clean code and thoughtful design.
+            </p>
 
-    <section class="about" id="about">
-        <h2>About Me</h2>
-        <p>
-            I'm a passionate mobile developer specializing in Android (Kotlin) and Flutter.
-            I build clean, functional, and user-friendly applications that focus on exceptional user experience and performance.
-        </p>
-    </section>
+            <div class="about-section-detail">
+                <h4>My Vision</h4>
+                <p>Every interaction tells a story. I believe a mobile app should be more than 
+                    just functional—it should feel intuitive, responsive, and alive.
+                     I continuously refine user experiences through clean architecture,
+                     thoughtful UI, and performance-driven design.</p>
+            </div>
 
+            <div class="about-philosophy-grid">
+                <div class="philo-item">
+                    <span class="philo-icon">💡</span>
+                    <div class="philo-text">
+                        <strong>Clean Design:</strong>
+                        <p>Keeping things simple, elegant.</p>
+                    </div>
+                </div>
+                <div class="philo-item">
+                    <span class="philo-icon">⚡</span>
+                    <div class="philo-text">
+                        <strong>Fast Learning:</strong>
+                        <p>Adapting quickly to new stacks.</p>
+                    </div>
+                </div>
+                <div class="philo-item">
+                    <span class="philo-icon">🎯</span>
+                    <div class="philo-text">
+                        <strong>Attention to Detail:</strong>
+                        <p>Every small element matters.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-visual">
+            <div class="floating-card html"> Kotlin </div>
+            <div class="floating-card css"> Flutter </div>
+            <div class="floating-card js"> REST API </div>
+            <div class="floating-card ui"> Firebase </div>
+            <div class="visual-glow"></div>
+        </div>
+    </div>
+</section>
     <section class="skills" id="skills">
-        <h2>Skills</h2> <div class="skills-grid">
+        <h2>Skills</h2>
+        <div class="skills-grid">
             <span>Kotlin</span>
             <span>Android</span>
             <span>Flutter</span>
@@ -43,43 +89,90 @@
             <span>JavaScript</span>
             <span>SQLite</span>
             <span>Firebase</span>
-            <span>REST APIs</span> </div>
+            <span>REST APIs</span>
+        </div>
     </section>
 
     <section class="projects" id="projects">
         <h2>My Projects</h2>
         <div class="project-list">
+            
+            <div class="project-card featured">
+                <div class="tech-tags">
+                    <span class="tag"> Kotlin </span>
+                    <span class="tag"> API </span>
+                    <span class="tag"> Firebase </span>
+                </div>
+                <h2>MyHotel</h2>
+                <p>
+                    <strong>MyHotel isn't just an app; it’s your local companion.</strong> 
+                    While others focus on just the room, we focus on the <span>journey</span>. 
+                    We bridge the gap between global travelers and local communities.
+                </p>
+                <div class="image-gallery">
+                    <img src="https://raw.githubusercontent.com/jaatitkhaoula42/MyHotel/master/MyHotel1.png" alt="Myhotel 1">
+                    <img src="https://raw.githubusercontent.com/jaatitkhaoula42/MyHotel/master/MyHotel2.png" alt="Myhotel 2">
+                    <img src="https://raw.githubusercontent.com/jaatitkhaoula42/MyHotel/master/MyHotel3.png" alt="Myhotel 3">
+                    <img src="https://raw.githubusercontent.com/jaatitkhaoula42/MyHotel/master/MyHotel4.png" alt="Myhotel 4">
+                    <img src="https://raw.githubusercontent.com/jaatitkhaoula42/MyHotel/master/MyHotel5.png" alt="Myhotel 5">
+                    <img src="https://raw.githubusercontent.com/jaatitkhaoula42/MyHotel/master/MyHotel6.png" alt="Myhotel 6">
+                    <img src="https://raw.githubusercontent.com/jaatitkhaoula42/MyHotel/master/MyHotel7.png" alt="Myhotel 7">
+                    <img src="https://raw.githubusercontent.com/jaatitkhaoula42/MyHotel/master/MyHotel8.png" alt="Myhotel 8">
+                    <img src="https://raw.githubusercontent.com/jaatitkhaoula42/MyHotel/master/MyHotel9.png" alt="Myhotel 9">
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/MabroumChaymae/MyHotel" target="_blank">View Code &rarr;</a>
+                </div>
+            </div>
+
             <div class="project-card">
-                <h3>MyNotes</h3>
-                <p>MyNotes is an Android app developed in Kotlin , efficient note-taking tool. Leveraging the Room persistence library, it lets users create, read, update, and delete notes seamlessly, even when offline.</p>
-                <img src="https://raw.githubusercontent.com/jaatitkhaoula42/mynotes/main/mynote1.jpg" alt="MyNotes Screenshot 1">
-                <img src="https://raw.githubusercontent.com/jaatitkhaoula42/mynotes/main/mynote2.jpg" alt="MyNotes Screenshot 2">
-                <img src="https://raw.githubusercontent.com/jaatitkhaoula42/mynotes/main/mynote3.jpg" alt="MyNotes Screenshot 2">
+                <div class="tech-tags">
+                    <span class="tag">Kotlin</span>
+                    <span class="tag">Room DB</span>
+                </div>
+                <h2>MyNotes</h2>
+                <p>Efficient note-taking tool. Leveraging the Room persistence library, it lets users create, update, and delete notes seamlessly offline.</p>
+                <div class="image-gallery">
+                    <img src="https://raw.githubusercontent.com/jaatitkhaoula42/mynotes/main/Mynote1.png" alt="MyNotes 1">
+                    <img src="https://raw.githubusercontent.com/jaatitkhaoula42/mynotes/main/Mynote2.png" alt="MyNotes 2">
+                    <img src="https://raw.githubusercontent.com/jaatitkhaoula42/mynotes/main/Mynote3.png" alt="MyNotes 3">
+                    <img src="https://raw.githubusercontent.com/jaatitkhaoula42/mynotes/main/Mynote4.png" alt="MyNotes 4">
+                </div>
                 <div class="project-links">
                     <a href="https://github.com/jaatitkhaoula42/mynotes" target="_blank">View Code &rarr;</a>
                 </div>
             </div>
 
             <div class="project-card">
+                <div class="tech-tags">
+                    <span class="tag"> Kotlin </span>
+                    <span class="tag"> REST API </span>
+                </div>
                 <h3>Delishio</h3>
-                <p>Delishio is an Android application built using Kotlin and XML, designed to help users explore recipes quickly and easily. The app includes a clean and intuitive interface where users can browse dishes, view detailed ingredients, and check preparation steps.</p>
-                <img src="https://raw.githubusercontent.com/jaatitkhaoula42/delishio/main/delishio1.png" alt="Delishio Screenshot 1">
-                <img src="https://raw.githubusercontent.com/jaatitkhaoula42/delishio/main/delishio2.png" alt="Delishio Screenshot 1">
+                <p>Designed to help users explore recipes quickly. Features a clean interface to browse dishes, ingredients, and steps.</p>
+                <div class="image-gallery">
+                    <img src="https://raw.githubusercontent.com/jaatitkhaoula42/delishio/main/delishio1.png" alt="Delishio 1">
+                    <img src="https://raw.githubusercontent.com/jaatitkhaoula42/delishio/main/delishio2.png" alt="Delishio 2">
+                </div>
                 <div class="project-links">
                     <a href="https://github.com/jaatitkhaoula42/delishio" target="_blank">View Code &rarr;</a>
                 </div>
             </div>
-            </div>
+
+        </div>
     </section>
 
     <section class="contact" id="contact">
-        <h2>Get In Touch</h2> <p>Email: <a href=" khaoulajaatit844@gmail.com "> khaoulajaatit844@gmail.com </a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/khaoula-jaatit" target="_blank"> linkedin.com/in/khaoula-jaatit </a></p>
-        <p>GitHub: <a href="https://github.com/jaatitkhaoula42" target="_blank"> github.com/jaatitkhaoula42 </a></p>
+        <h2>Get In Touch</h2>
+        <div class="contact-container">
+            <p>Email: <a href="mailto:khaoulajaatit844@gmail.com">khaoulajaatit844@gmail.com</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/khaoula-jaatit" target="_blank">linkedin.com/in/khaoula-jaatit</a></p>
+            <p>GitHub: <a href="https://github.com/jaatitkhaoula42" target="_blank">github.com/jaatitkhaoula42</a></p>
+        </div>
     </section>
+
     <footer>
-        <p>© 2025 Khaoula Jaatit — All rights reserved.</p>
+        <p>© 2026 Khaoula JAATIT — Built with ❤️ .</p>
     </footer>
-    
 </body>
 </html>
