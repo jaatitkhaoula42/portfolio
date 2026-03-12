@@ -1,481 +1,215 @@
-/* style.css - Clean, Aurora & Balanced */
+/* 
+ * style.css - Dark Premium & Minimalist 
+ * Vibe: Obsidian, Glassmorphism, Modern Typography
+ */
+
 :root {
-    --aurora-1: #4361ee;
-    --aurora-2: #7209b7;
-    --aurora-3: #f72585;
-    --grad: linear-gradient(135deg, var(--aurora-1), var(--aurora-2), var(--aurora-3));
-    --bg-main: #fcfdff;
-    --text-head: #0f172a;
-    --text-body: #475569;
-    --glass-white: rgba(255, 255, 255, 0.8);
-    --glass-border: rgba(226, 232, 240, 0.8);
-    --card-shadow: 0 10px 30px -5px rgba(67, 97, 238, 0.1);
+    --obsidian: #030712;
+    --pitch-black: #000000;
+    --accent: #3b82f6; /* Electric Blue */
+    --accent-glow: rgba(59, 130, 246, 0.4);
+    --text-primary: #f9fafb;
+    --text-secondary: #9ca3af;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --card-bg: rgba(17, 24, 39, 0.5);
+    --grad-deep: radial-gradient(circle at top center, #111827, #030712);
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+/* --- Global Reset & Base --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: var(--bg-main);
-    color: var(--text-body);
+    background-color: var(--obsidian);
+    color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
-    /* خلفية هادئة لا تشتت العين */
-    background-image: 
-        radial-gradient(circle at 0% 0%, rgba(67, 97, 238, 0.05) 0%, transparent 30%),
-        radial-gradient(circle at 100% 100%, rgba(247, 37, 133, 0.05) 0%, transparent 30%);
+    background-image: var(--grad-deep);
+    background-attachment: fixed;
+    min-height: 100vh;
+    letter-spacing: -0.01em;
 }
 
-/* --- 1. Navigation - fixed the overlap --- */
+h1, h2, h3, h4 {
+    letter-spacing: -0.04em;
+    font-weight: 800;
+}
+
+section {
+    padding: 100px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- 1. Navigation --- */
 .nav-bar {
-    position: sticky; /* أفضل من fixed لتجنب التداخل مع المحتوى */
+    position: sticky;
     top: 0;
     z-index: 1000;
-    background: var(--glass-white);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(3, 7, 18, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--glass-border);
-    padding: 1rem 5%;
+    padding: 1.25rem 5%;
     display: flex;
-    justify-content: center; /* تمركز الروابط */
+    justify-content: center;
 }
 
 .nav-links {
     display: flex;
-    gap: 30px;
+    gap: 2.5rem;
     list-style: none;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: var(--text-head);
-    font-weight: 700;
+    color: var(--text-secondary);
+    font-weight: 500;
     font-size: 0.9rem;
-    transition: 0.3s;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.nav-links a:hover { color: var(--aurora-1); }
+.nav-links a:hover {
+    color: var(--text-primary);
+    text-shadow: 0 0 10px var(--accent-glow);
+}
 
-/* --- 2. Hero Section - Adjusted margins --- */
+/* --- 2. Hero Section --- */
 .hero {
-    min-height: 70vh; /* تقليل الارتفاع ليكون أكثر منطقية */
+    min-height: 85vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 80px 20px;
-    margin-bottom: 40px;
+    position: relative;
+    padding-top: 0;
 }
 
 .hero h1 {
-    font-size: clamp(2.5rem, 8vw, 4.5rem); /* تصغير الحجم قليلاً */
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    background: var(--grad);
+    font-size: clamp(3.5rem, 12vw, 7rem);
+    line-height: 0.9;
+    margin-bottom: 2rem;
+    background: linear-gradient(to bottom, #fff, #4b5563);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    line-height: 1.2;
-    margin-bottom: 25px;
+}
+
+.hero h2 {
+    font-size: clamp(1.2rem, 4vw, 2.2rem);
+    color: var(--text-secondary);
+    margin-bottom: 3.5rem;
+    font-weight: 400;
+}
+
+.hero .highlight {
+    color: var(--accent);
+    font-weight: 600;
 }
 
 .btn {
     display: inline-block;
-    padding: 16px 35px;
-    background: var(--grad);
-    color: white;
+    padding: 1.1rem 2.8rem;
+    background: var(--text-primary);
+    color: var(--pitch-black);
     text-decoration: none;
-    border-radius: 12px; /* زوايا أكثر عصرية ومنطقية */
+    border-radius: 9999px;
     font-weight: 700;
-    box-shadow: 0 10px 20px rgba(67, 97, 238, 0.2);
-    transition: 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
 }
 
 .btn:hover {
+    background: transparent;
+    color: var(--text-primary);
+    border-color: var(--glass-border);
     transform: translateY(-3px);
-    box-shadow: 0 15px 25px rgba(67, 97, 238, 0.3);
+    box-shadow: 0 0 40px var(--accent-glow);
 }
 
-/* --- 3. Skills Grid --- */
- /* --- Skills: Magnetic Liquid Glow Concept --- */
-.skills-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    max-width: 950px;
-    margin: 50px auto;
-    padding: 20px;
-}
-
-.skills-grid span {
-    position: relative;
-    background: white;
-    padding: 14px 30px;
-    border-radius: 12px;
-    font-weight: 700;
-    color: var(--text-head);
-    border: 1px solid var(--glass-border);
-    cursor: pointer;
-    overflow: hidden; /* ضروري باش الـ Glow م يخرجش على الزوايا */
-    z-index: 1;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* هاد الجزء هو اللي كيدير تأثير الإضاءة السائلة الداخل */
-.skills-grid span::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: var(--grad); /* الـ Aurora gradient اللي استعملنا */
-    transition: width 0.6s ease, height 0.6s ease;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    z-index: -1;
-    opacity: 0;
-}
-
-.skills-grid span:hover {
-    color: white;
-    /* حركة "المغناطيس": كيتجبد للعرض شوية وكيتزاد الحجم */
-    letter-spacing: 1px;
-    transform: scaleX(1.1) translateY(-5px);
-    border-color: transparent;
-    box-shadow: 0 10px 25px rgba(67, 97, 238, 0.3);
-}
-
-/* ملي كتحط الماوس، اللون كينتشر بحال النقطة ديال الحبر */
-.skills-grid span:hover::before {
-    width: 300px;
-    height: 300px;
-    opacity: 1;
-}
-
-/* تأثير إضافي: "النبض" (Pulse) خفيف */
-@keyframes skillPulse {
-    0% { box-shadow: 0 0 0 0 rgba(67, 97, 238, 0.4); }
-    100% { box-shadow: 0 0 0 15px rgba(67, 97, 238, 0); }
-}
-
-.skills-grid span:active {
-    animation: skillPulse 0.5s forwards;
-    transform: scale(0.95);
-}
-
-/* --- 4. Project Cards - Fixed spacing --- */
-.project-list {
-    max-width: 1000px;
-    margin: 60px auto;
-    padding: 0 20px;
+/* --- 3. About Section --- */
+.about-container {
     display: grid;
-    gap: 30px; /* مساحة واضحة بين البطاقات */
-}
-
-.project-card {
-    background: white;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 80px;
+    align-items: center;
+    background: var(--card-bg);
+    padding: 80px;
+    border-radius: 40px;
     border: 1px solid var(--glass-border);
-    border-radius: 24px;
-    padding: 35px;
-    box-shadow: var(--card-shadow);
-    transition: 0.3s ease;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
-.project-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--aurora-1);
+.about-content h2 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    margin-bottom: 2rem;
+    line-height: 1;
 }
 
 .tag {
     display: inline-block;
-    background: rgba(67, 97, 238, 0.1);
-    color: var(--aurora-1);
-    padding: 5px 12px;
+    color: var(--accent);
+    background: rgba(59, 130, 246, 0.1);
+    padding: 6px 14px;
     border-radius: 8px;
     font-size: 0.75rem;
     font-weight: 700;
-    margin-bottom: 15px;
-}
-
-/* --- 5. Image Gallery - scroll fix --- */
-.image-gallery {
-    display: flex;
-    gap: 15px;
-    overflow-x: auto;
-    padding: 20px 0;
-    margin: 20px 0;
-}
-
-.image-gallery img {
-    height: 180px; /* ارتفاع مريح ومنطقي */
-    border-radius: 16px;
-    object-fit: cover;
-    flex-shrink: 0; /* يمنع الصور من الانضغاط */
-    border: 2px solid #fff;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-/* --- 6. Contact Section --- */
-.contact {
-    max-width: 900px;
-    margin: 80px auto;
-    background: var(--grad);
-    padding: 60px 20px;
-    border-radius: 30px;
-    color: white;
-    text-align: center;
-}
-
-.contact h2 { color: white; margin-bottom: 20px; font-size: 2.2rem; }
-
-.contact a {
-    display: inline-block;
-    color: var(--aurora-1);
-    background: white;
-    padding: 12px 30px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: 800;
-    margin-top: 10px;
-}
-
-footer {
-    text-align: center;
-    padding: 40px;
-    color: var(--text-muted);
-    font-size: 0.85rem;
-}
-/* --- About Me: Prominent & Creative Style --- */
-.about {
-    position: relative;
-    max-width: 1000px;
-    margin: 100px auto;
-    padding: 60px 40px;
-    background: var(--glass-white);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
-    border-radius: 40px;
-    overflow: hidden; /* باش الـ Glow م يخرجش */
-    box-shadow: var(--card-shadow);
-}
-
-/* إضافة إضاءة خلفية (Aurora Glow) وراء النص */
-.about::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(247, 37, 133, 0.1) 0%, transparent 70%);
-    z-index: -1;
-}
-
-.about-container {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr; /* تقسيم مساحة النص والصورة/العناصر الإضافية */
-    gap: 40px;
-    align-items: center;
-}
-
-.about-content h2 {
-    text-align: left; /* مابقاش كولشي الوسط باش يبان ستيل احترافي */
-    margin-bottom: 25px;
-    font-size: 3rem;
-    font-weight: 900;
-    line-height: 1;
-}
-
-.about-content p {
-    font-size: 1.1rem;
-    color: var(--text-body);
-    line-height: 1.8;
-    margin-bottom: 20px;
-}
-
-/* ستيل خاص للكلمات المهمة داخل الـ About */
-.about-content p strong {
-    color: var(--aurora-1);
-    background: rgba(67, 97, 238, 0.05);
-    padding: 2px 8px;
-    border-radius: 6px;
-    font-weight: 800;
-}
-
-/* مربع إحصائيات أو معلومات سريعة بجانب النص */
-.about-stats {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
-.stat-box {
-    background: white;
-    padding: 25px;
-    border-radius: 24px;
-    border: 1px solid rgba(0,0,0,0.03);
-    text-align: center;
-    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.stat-box:hover {
-    transform: translateY(-10px);
-    border-color: var(--aurora-2);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
-}
-
-.stat-box h3 {
-    font-size: 2rem;
-    background: var(--grad);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 5px;
-}
-
-.stat-box p {
-    font-size: 0.8rem;
-    font-weight: 700;
+    margin-bottom: 1.5rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--text-dim);
-}
-
-/* Responsive: تحويل الشبكة لعمود واحد فالهاتف */
-@media (max-width: 768px) {
-    .about-container {
-        grid-template-columns: 1fr;
-    }
-    .about-content h2 { font-size: 2.2rem; }
-} 
-/* --- About Visual Section --- */
-.about-visual {
-    position: relative;
-    height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.floating-card {
-    position: absolute;
-    background: white;
-    padding: 15px 25px;
-    border-radius: 15px;
-    font-weight: 800;
-    font-size: 0.9rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    border: 1px solid var(--glass-border);
-    animation: float 4s ease-in-out infinite;
-}
-
-/* توزيع الكروت فالبلاصة الخاوية */
-.floating-card.html { top: 10%; left: 10%; animation-delay: 0s; color: #E34F26; }
-.floating-card.css { top: 40%; right: 15%; animation-delay: 1s; color: #1572B6; }
-.floating-card.js { bottom: 20%; left: 20%; animation-delay: 2s; color: #F7DF1E; }
-.floating-card.design { top: 70%; right: 5%; animation-delay: 1.5s; color: var(--aurora-3); }
-
-/* تأثير الإضاءة لي كيعمر الفراغ */
-.visual-glow {
-    position: absolute;
-    width: 250px;
-    height: 250px;
-    background: var(--grad);
-    filter: blur(80px);
-    opacity: 0.15;
-    z-index: -1;
-}
-
-/* حركة الطفو (Floating) */
-@keyframes float {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(2deg); }
-}
-
-/* ضروري نأكدوا على الـ Grid باش يتقسم الموقع لـ 2 جهات */
-.about-container {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr; /* 1fr هي الجهة اللي كانت خاوية */
-    gap: 40px;
-    align-items: center;
-}
-
-@media (max-width: 900px) {
-    .about-container { grid-template-columns: 1fr; }
-    .about-visual { height: 200px; } /* تصغير المساحة فالموبايل */
-}
-/* --- About Section Fixes --- */
-.about {
-    padding: 80px 5%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.about-container {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr; /* تقسيم متوازن */
-    gap: 60px;
-    align-items: flex-start;
-    background: var(--glass-white);
-    padding: 50px;
-    border-radius: 40px;
-    border: 1px solid var(--glass-border);
-}
-
-.about-content h2 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    line-height: 1.1;
+    letter-spacing: 0.15em;
 }
 
 .main-text {
-    font-size: 1.1rem;
-    margin-bottom: 30px;
-    line-height: 1.6;
-}
-
-.about-section-detail {
-    margin-bottom: 40px;
+    font-size: 1.25rem;
+    margin-bottom: 2.5rem;
+    color: var(--text-primary);
+    opacity: 0.9;
 }
 
 .about-section-detail h4 {
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-    color: var(--aurora-1);
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: var(--accent);
 }
 
-/* حل مشكلة التداخل في الـ Philosophy */
 .about-philosophy-grid {
     display: grid;
-    grid-template-columns: 1fr; /* عمود واحد لتجنب الضيق */
-    gap: 20px;
-    border-top: 1px solid var(--glass-border);
-    padding-top: 30px;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
 }
 
 .philo-item {
     display: flex;
-    align-items: flex-start;
-    gap: 15px;
+    gap: 1.5rem;
 }
 
 .philo-icon { font-size: 1.5rem; }
 
 .philo-text strong {
     display: block;
-    font-size: 1rem;
-    color: var(--text-head);
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 0.2rem;
 }
 
 .philo-text p {
-    font-size: 0.9rem;
-    color: var(--text-body);
+    font-size: 1rem;
+    color: var(--text-secondary);
 }
 
-/* --- Floating Cards Placement --- */
+/* --- 4. About Visual --- */
 .about-visual {
     position: relative;
     height: 450px;
@@ -483,30 +217,243 @@ footer {
 
 .floating-card {
     position: absolute;
-    background: white;
-    padding: 15px 25px;
-    border-radius: 15px;
+    background: var(--card-bg);
+    padding: 16px 28px;
+    border-radius: 20px;
     font-weight: 800;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    font-size: 0.95rem;
+    color: var(--text-primary);
     border: 1px solid var(--glass-border);
-    animation: float 4s ease-in-out infinite;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    animation: float 6s ease-in-out infinite;
+    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.6);
 }
 
-.floating-card.html { top: 5%; left: 10%; color: #E34F26; }
-.floating-card.css { top: 35%; right: 10%; color: #1572B6; animation-delay: 1s; }
-.floating-card.js { bottom: 25%; left: 15%; color: #F7DF1E; animation-delay: 2s; }
-.floating-card.ui { bottom: 5%; right: 15%; color: var(--aurora-3); animation-delay: 1.5s; }
+.floating-card.html { top: 10%; left: 5%; color: #3b82f6; }
+.floating-card.css { top: 40%; right: 5%; color: #60a5fa; animation-delay: 1.5s; }
+.floating-card.js { bottom: 20%; left: 15%; color: #93c5fd; animation-delay: 3s; }
+.floating-card.ui { bottom: 5%; right: 20%; color: #bfdbfe; animation-delay: 4.5s; }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-25px) rotate(2deg); }
 }
 
-/* Responsive */
-@media (max-width: 968px) {
+/* --- 5. Skills Section --- */
+.skills {
+    text-align: center;
+}
+
+.skills h2 {
+    font-size: 3.5rem;
+    margin-bottom: 4rem;
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem;
+}
+
+.skills-grid span {
+    background: var(--glass-bg);
+    padding: 0.9rem 1.8rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: default;
+}
+
+.skills-grid span:hover {
+    color: var(--text-primary);
+    background: var(--card-bg);
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: 0 0 25px var(--accent-glow);
+}
+
+/* --- 6. Projects Section --- */
+.projects h2 {
+    font-size: 3.5rem;
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+}
+
+.project-card {
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 32px;
+    padding: 45px;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), var(--accent-glow) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.5s;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent);
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.8);
+}
+
+.project-card:hover::before {
+    opacity: 0.3;
+}
+
+.project-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.project-card h2, .project-card h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.project-card p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.tech-tags {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.tech-tags .tag {
+    margin-bottom: 0;
+}
+
+.image-gallery {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    scrollbar-width: none; /* Firefox */
+}
+
+.image-gallery::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+
+.image-gallery img {
+    height: 200px;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    transition: transform 0.3s;
+}
+
+.image-gallery img:hover {
+    transform: scale(1.05);
+}
+
+.project-links a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: gap 0.3s;
+}
+
+.project-links a:hover {
+    gap: 0.8rem;
+}
+
+/* --- 7. Contact Section --- */
+.contact {
+    text-align: center;
+}
+
+.contact-container {
+    background: var(--card-bg);
+    padding: 80px;
+    border-radius: 40px;
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.contact h2 {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+}
+
+.contact p {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.contact a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.contact a:hover {
+    color: var(--accent);
+}
+
+/* --- 8. Footer --- */
+footer {
+    padding: 60px 5%;
+    text-align: center;
+    border-top: 1px solid var(--glass-border);
+    color: var(--text-secondary);
+}
+
+/* --- 9. Entrance Animations --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
     .about-container {
         grid-template-columns: 1fr;
-        padding: 30px;
+        gap: 60px;
+        padding: 60px;
     }
-    .about-visual { height: 300px; }
+    .about-visual { height: 350px; }
+}
+
+@media (max-width: 768px) {
+    section { padding: 80px 5%; }
+    .hero h1 { font-size: 4rem; }
+    .project-list { grid-template-columns: 1fr; }
+    .contact-container { padding: 40px; }
 }

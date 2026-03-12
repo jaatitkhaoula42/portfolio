@@ -5,7 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Khaoula Portfolio | Mobile Developer</title>
     <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* Modern Typography Tweaks */
+        :root {
+            --font-main: 'Inter', sans-serif;
+        }
+        body {
+            font-family: var(--font-main);
+            letter-spacing: -0.02em;
+        }
+        h1, h2, h3, h4 {
+            letter-spacing: -0.05em;
+        }
+    </style>
 </head>
 <body>
     <nav class="nav-bar">
@@ -17,67 +31,68 @@
         </ul>
     </nav>
     
-    <section class="hero">
+    <section class="hero reveal" id="home">
         <div class="hero-content">
-            <h1>Hello, I am Khaoula</h1>
+            <h1>Hello, I am <span class="highlight">Khaoula</span></h1>
             <h2>Mobile App Developer <span class="highlight">(Android | Flutter)</span></h2>
             <a href="#projects" class="btn">View My Work</a>
         </div>
     </section>
-   <section class="about" id="about">
-    <div class="about-container">
-        <div class="about-content">
-            <div class="tag">The Creative Journey</div>
-            <h2>About Me <span class="highlight">Highlight</span></h2>
-            
-            <p class="main-text">
-                I am a <strong>self-taught Mobile App developer</strong>on a mission to build applications that are both powerful and elegant. I focus on turning ideas into intuitive mobile experiences through clean code and thoughtful design.
-            </p>
 
-            <div class="about-section-detail">
-                <h4>My Vision</h4>
-                <p>Every interaction tells a story. I believe a mobile app should be more than 
-                    just functional—it should feel intuitive, responsive, and alive.
-                     I continuously refine user experiences through clean architecture,
-                     thoughtful UI, and performance-driven design.</p>
+    <section class="about reveal" id="about">
+        <div class="about-container">
+            <div class="about-content">
+                <div class="tag">The Creative Journey</div>
+                <h2>About Me</h2>
+                
+                <p class="main-text">
+                    I am a <strong>self-taught Mobile App developer</strong> on a mission to build applications that are both powerful and elegant. I focus on turning ideas into intuitive mobile experiences through clean code and thoughtful design.
+                </p>
+
+                <div class="about-section-detail">
+                    <h4>My Vision</h4>
+                    <p>Every interaction tells a story. I believe a mobile app should be more than 
+                        just functional—it should feel intuitive, responsive, and alive.
+                         I continuously refine user experiences through clean architecture,
+                         thoughtful UI, and performance-driven design.</p>
+                </div>
+
+                <div class="about-philosophy-grid">
+                    <div class="philo-item">
+                        <span class="philo-icon">💡</span>
+                        <div class="philo-text">
+                            <strong>Clean Design</strong>
+                            <p>Keeping things simple, elegant, and user-centric.</p>
+                        </div>
+                    </div>
+                    <div class="philo-item">
+                        <span class="philo-icon">⚡</span>
+                        <div class="philo-text">
+                            <strong>Fast Learning</strong>
+                            <p>Adapting quickly to new stacks and technologies.</p>
+                        </div>
+                    </div>
+                    <div class="philo-item">
+                        <span class="philo-icon">🎯</span>
+                        <div class="philo-text">
+                            <strong>Attention to Detail</strong>
+                            <p>Ensuring every small element contributes to excellence.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="about-philosophy-grid">
-                <div class="philo-item">
-                    <span class="philo-icon">💡</span>
-                    <div class="philo-text">
-                        <strong>Clean Design:</strong>
-                        <p>Keeping things simple, elegant.</p>
-                    </div>
-                </div>
-                <div class="philo-item">
-                    <span class="philo-icon">⚡</span>
-                    <div class="philo-text">
-                        <strong>Fast Learning:</strong>
-                        <p>Adapting quickly to new stacks.</p>
-                    </div>
-                </div>
-                <div class="philo-item">
-                    <span class="philo-icon">🎯</span>
-                    <div class="philo-text">
-                        <strong>Attention to Detail:</strong>
-                        <p>Every small element matters.</p>
-                    </div>
-                </div>
+            <div class="about-visual">
+                <div class="floating-card html">Kotlin</div>
+                <div class="floating-card css">Flutter</div>
+                <div class="floating-card js">REST API</div>
+                <div class="floating-card ui">Firebase</div>
             </div>
         </div>
+    </section>
 
-        <div class="about-visual">
-            <div class="floating-card html"> Kotlin </div>
-            <div class="floating-card css"> Flutter </div>
-            <div class="floating-card js"> REST API </div>
-            <div class="floating-card ui"> Firebase </div>
-            <div class="visual-glow"></div>
-        </div>
-    </div>
-</section>
-    <section class="skills" id="skills">
-        <h2>Skills</h2>
+    <section class="skills reveal" id="skills">
+        <h2>Expertise</h2>
         <div class="skills-grid">
             <span>Kotlin</span>
             <span>Android</span>
@@ -93,20 +108,20 @@
         </div>
     </section>
 
-    <section class="projects" id="projects">
-        <h2>My Projects</h2>
+    <section class="projects reveal" id="projects">
+        <h2>Selected Works</h2>
         <div class="project-list">
             
-            <div class="project-card featured">
+            <div class="project-card reveal">
                 <div class="tech-tags">
-                    <span class="tag"> Kotlin </span>
-                    <span class="tag"> API </span>
-                    <span class="tag"> Firebase </span>
+                    <span class="tag">Kotlin</span>
+                    <span class="tag">API</span>
+                    <span class="tag">Firebase</span>
                 </div>
-                <h2>MyHotel</h2>
+                <h3>MyHotel</h3>
                 <p>
                     <strong>MyHotel isn't just an app; it’s your local companion.</strong> 
-                    While others focus on just the room, we focus on the <span>journey</span>. 
+                    While others focus on just the room, we focus on the journey. 
                     We bridge the gap between global travelers and local communities.
                 </p>
                 <div class="image-gallery">
@@ -115,38 +130,33 @@
                     <img src="https://raw.githubusercontent.com/jaatitkhaoula42/MyHotel/master/MyHotel3.png" alt="Myhotel 3">
                     <img src="https://raw.githubusercontent.com/jaatitkhaoula42/MyHotel/master/MyHotel4.png" alt="Myhotel 4">
                     <img src="https://raw.githubusercontent.com/jaatitkhaoula42/MyHotel/master/MyHotel5.png" alt="Myhotel 5">
-                    <img src="https://raw.githubusercontent.com/jaatitkhaoula42/MyHotel/master/MyHotel6.png" alt="Myhotel 6">
-                    <img src="https://raw.githubusercontent.com/jaatitkhaoula42/MyHotel/master/MyHotel7.png" alt="Myhotel 7">
-                    <img src="https://raw.githubusercontent.com/jaatitkhaoula42/MyHotel/master/MyHotel8.png" alt="Myhotel 8">
-                    <img src="https://raw.githubusercontent.com/jaatitkhaoula42/MyHotel/master/MyHotel9.png" alt="Myhotel 9">
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/MabroumChaymae/MyHotel" target="_blank">View Code &rarr;</a>
+                    <a href="https://github.com/MabroumChaymae/MyHotel" target="_blank">View Project &rarr;</a>
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card reveal">
                 <div class="tech-tags">
                     <span class="tag">Kotlin</span>
                     <span class="tag">Room DB</span>
                 </div>
-                <h2>MyNotes</h2>
+                <h3>MyNotes</h3>
                 <p>Efficient note-taking tool. Leveraging the Room persistence library, it lets users create, update, and delete notes seamlessly offline.</p>
                 <div class="image-gallery">
                     <img src="https://raw.githubusercontent.com/jaatitkhaoula42/mynotes/main/Mynote1.png" alt="MyNotes 1">
                     <img src="https://raw.githubusercontent.com/jaatitkhaoula42/mynotes/main/Mynote2.png" alt="MyNotes 2">
                     <img src="https://raw.githubusercontent.com/jaatitkhaoula42/mynotes/main/Mynote3.png" alt="MyNotes 3">
-                    <img src="https://raw.githubusercontent.com/jaatitkhaoula42/mynotes/main/Mynote4.png" alt="MyNotes 4">
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/jaatitkhaoula42/mynotes" target="_blank">View Code &rarr;</a>
+                    <a href="https://github.com/jaatitkhaoula42/mynotes" target="_blank">View Project &rarr;</a>
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card reveal">
                 <div class="tech-tags">
-                    <span class="tag"> Kotlin </span>
-                    <span class="tag"> REST API </span>
+                    <span class="tag">Kotlin</span>
+                    <span class="tag">REST API</span>
                 </div>
                 <h3>Delishio</h3>
                 <p>Designed to help users explore recipes quickly. Features a clean interface to browse dishes, ingredients, and steps.</p>
@@ -155,16 +165,16 @@
                     <img src="https://raw.githubusercontent.com/jaatitkhaoula42/delishio/main/delishio2.png" alt="Delishio 2">
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/jaatitkhaoula42/delishio" target="_blank">View Code &rarr;</a>
+                    <a href="https://github.com/jaatitkhaoula42/delishio" target="_blank">View Project &rarr;</a>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <section class="contact" id="contact">
-        <h2>Get In Touch</h2>
+    <section class="contact reveal" id="contact">
         <div class="contact-container">
+            <h2>Let's Build Something Great</h2>
             <p>Email: <a href="mailto:khaoulajaatit844@gmail.com">khaoulajaatit844@gmail.com</a></p>
             <p>LinkedIn: <a href="https://www.linkedin.com/in/khaoula-jaatit" target="_blank">linkedin.com/in/khaoula-jaatit</a></p>
             <p>GitHub: <a href="https://github.com/jaatitkhaoula42" target="_blank">github.com/jaatitkhaoula42</a></p>
@@ -172,7 +182,36 @@
     </section>
 
     <footer>
-        <p>© 2026 Khaoula JAATIT — Built with ❤️ .</p>
+        <p>© 2026 Khaoula JAATIT — Crafted with Precision.</p>
     </footer>
+
+    <script>
+        // --- Scroll Reveal Animation ---
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // --- Project Card Glow Effect ---
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / card.clientWidth) * 100;
+                const y = ((e.clientY - rect.top) / card.clientHeight) * 100;
+                card.style.setProperty('--x', `${x}%`);
+                card.style.setProperty('--y', `${y}%`);
+            });
+        });
+    </script>
 </body>
 </html>
